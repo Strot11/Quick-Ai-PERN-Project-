@@ -8,35 +8,21 @@ import userRouter from "./routes/userRoutes.js";
 
 const app = express();
 
-// Connect cloudinary
 await connectCloudinary();
 
-// CORS: allow only your frontend
-app.use(
-  cors({
-    origin: [process.env.CLIENT_URL, "http://localhost:5173"], // add your vercel frontend here
-    credentials: true,
-  })
-);
-
+app.use(cors());
 app.use(express.json());
 app.use(clerkMiddleware());
 
-// Public route
 app.get("/", (req, res) => {
   res.send("Hello from QuickAi server");
 });
-
-// API routes
 app.use("/api/ai", aiRouter);
 app.use("/api/user", userRouter);
-
-// Example of protecting a route (instead of applying globally)
-app.get("/api/protected", requireAuth(), (req, res) => {
-  res.json({ message: "This is protected data!" });
-});
+app.use(requireAuth()); //only login user can accessed this route.
 
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-  console.log(` Server running on port ${PORT}`);
+  console.log(`Server is Running on http://localhost:${PORT}`);
 });
