@@ -13,9 +13,14 @@ QuickAi is a React-based web application offering a suite of AI-powered tools fo
   - Remove Object  
   - Review Resume  
   - Community
-- **Responsive Sidebar Navigation**
-- **User Authentication** (Clerk integration)
-- **Modern UI** with Tailwind CSS
+- **Responsive Sidebar Navigation** with active link highlighting and mobile sidebar toggle.
+- **User Authentication** (Clerk integration) with user profile and plan display.
+- **Modern UI** with Tailwind CSS and custom font (Outfit).
+- **Dashboard:** Shows total creations, active plan, and recent creations.
+- **Article Generator:** Select topic and length, generate articles.
+- **Image Generator:** Describe image, select style, publish option.
+- **Testimonials:** User feedback with star ratings.
+- **Reusable Components:** Navbar, Hero, Footer, Plan, Sidebar, Testimonial, CreationItem.
 
 ## Folder Structure
 
@@ -23,6 +28,7 @@ QuickAi is a React-based web application offering a suite of AI-powered tools fo
 src/
   components/
     Aitools.jsx
+    creationItem.jsx
     Footer.jsx
     Hero.jsx
     Navbar.jsx
@@ -42,6 +48,7 @@ src/
     WriteArticle.jsx
   App.jsx
   main.jsx
+  index.css
 ```
 
 ## Getting Started
@@ -76,6 +83,17 @@ src/
 
 - Sign in to access AI tools.
 - Use the sidebar to navigate between features.
+- Generate articles and images using AI.
+- View your dashboard for stats and recent creations.
 - Enjoy seamless content creation with AI!
 
+## Customization
+
+- **Styling:** Uses Tailwind CSS and the Outfit font.
+- **Sidebar:** Responsive with mobile toggle and active link styles.
+- **Dashboard:** Displays user plan using Clerk's `<Protect>` component.
+- **Components:** Easily extendable for new AI tools.
+
 ## License
+
+MIT
